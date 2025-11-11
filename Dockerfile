@@ -13,6 +13,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 复制所有代码进去，项目就齐活了
 COPY . .
 
-EXPOSE 8000
+# 使用环境变量 PORT，如果没有默认8080
+ENV PORT 8080
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# uvicorn 启动命令
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT}"]
