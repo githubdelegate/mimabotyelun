@@ -32,7 +32,7 @@ async def telegram_webhook(request: Request):
 @app.get("/set_webhook")
 def set_webhook():
     # 你的 Vercel 部署 URL
-    url = f"https://mimabotyelun.vercel.app/webhook/{TOKEN}"
+    url = f"https://mimabotyelun-237843897719.europe-west1.run.app/webhook/{TOKEN}"
     if bot.set_webhook(url):
         return {"status": "Webhook set", "url": url}
     else:
