@@ -28,7 +28,15 @@ async def telegram_webhook(request: Request):
     return {"ok": True}
 
 
-
+# 用来给 Telegram 设置 Webhook 的路由
+@app.get("/set_webhook")
+def set_webhook():
+    # 你的 Vercel 部署 URL
+    url = f"https://mimabotyelun.vercel.app/webhook/{TOKEN}"
+    if bot.set_webhook(url):
+        return {"status": "Webhook set", "url": url}
+    else:
+        return {"status": "Failed to set webhook"}
 
 
 @app.get("/")
