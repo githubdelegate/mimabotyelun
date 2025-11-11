@@ -41,7 +41,7 @@ def set_webhook():
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Hello": "World2"}
 
 @app.get("/chat")
 def read_chat():
